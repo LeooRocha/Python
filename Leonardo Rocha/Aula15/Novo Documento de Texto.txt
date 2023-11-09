@@ -1,0 +1,63 @@
+use loja_II;
+
+CREATE TABLE produto 
+(`id` INT(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`nome` VARCHAR(45) NOT NULL, `quantidade` INT NOT NULL,
+`preco` DECIMAL(4) NOT NULL, `tipo` VARCHAR(20));
+ 
+SELECT * FROM clientes;
+ 
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("juvilano", "Rua da cabeça", 12453668, "teste@teste2.com", 32549871); 
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("jessica pitrenas", "Rua 23 de maio", 50123546, "teste@gmail.com", 52214687); 
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Pitrenas Ricardo", "Rua 4563", 123456789, "teste@hot.com", 4565795); 
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Buno montelone", "Rua da minha rua", 982134562, "teste@teste.com", 123456789); 
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Victor felipe", "Rua da minha rua", 982134562, "teste@teste.com", 123456789); 
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Leonardo Machado", "Rua da minha rua", 982134562, "teste@teste.com", 123456789); 
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Elaine pereira", "Rua da minha rua", 982134562, "teste@teste.com", 123456789); 
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Manoel alencar", "Rua vulcão", 493981425, "teste@mail.com", 123456789);
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Maria Inez", "Rua 856", 254687452, "teste@gmail.com", 456789132); 
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Lidia manoel", "Rua 75 de julho", 232448621, "teste@yahoo.com", 25468752); 
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Miguel Alencar", "Rua Pernambuco", 5213547, "teste@perna.com", 321458752);  
+
+SELECT * from produto;
+
+INSERT INTO produto(nome, quantidade, preco, tipo)
+VALUES ("Mi note 10 pro", 20, 1590, "eletronico");
+
+INSERT INTO produto(nome, quantidade, preco, tipo)
+VALUES ("Notebook PC GAMER", 50, 3550, "eletronico");
+
+INSERT INTO produto(nome, quantidade, preco, tipo)
+VALUES ("Mouse Gamer", 10, 630, "Periferico");
+
+INSERT INTO produto(nome, quantidade, preco, tipo)
+VALUES ("Escova de Dentes", 16, 20, "Utilitarios");
+
+UPDATE clientes
+set nome = "Jonas"
+WHERE idclientes = 2;
+
+CREATE table compras(
+`idproduto` int(5),`idcliente` int(5), 
+`quantidade` int(5), `valor` DECIMAL(4));
