@@ -1,0 +1,20 @@
+body{
+    background-color:lightblue
+}
+
+h1{
+background-color: blueviolet;
+color:white;
+width: 100%;
+}
+
+#p{
+    color:red;
+    font-size:30px;
+    font-family: tahoma;
+    font-weight: bold;
+}
+
+.forms{
+
+}
