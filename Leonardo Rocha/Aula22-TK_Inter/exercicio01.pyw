@@ -11,6 +11,8 @@ import requests
 import os
 import pandas as pd
 from operator import itemgetter
+import openpyxl
+import matplotlib.pyplot as plt
 
 def entrar_navegador():
     lista_produtos = []
@@ -20,7 +22,7 @@ def entrar_navegador():
     sleep(2)
 
 # Pesquisa o determinado produto
-    pesquisa = captura_usuario
+    pesquisa = entrada_txt.get() #Termo para armazenar o valor do Entry
     pesquisa_tv = navegador.find_element(By.ID, "cb1-edit")
 
     pesquisa_tv.send_keys(pesquisa)
@@ -55,7 +57,7 @@ def entrar_navegador():
             flag_pagina_seguinte = False
             pass
     
-    '''lista_ordenada = sorted(lista_produtos, key = itemgetter(3)) #Variavel que organiza os dados
+    lista_ordenada = sorted(lista_produtos, key = itemgetter(3)) #Variavel que organiza os dados
 
     for item in lista_ordenada:
         del item[3]
@@ -64,7 +66,29 @@ def entrar_navegador():
     arq_produtos.to_excel(f'{pesquisa}.xlsx', index = False)
 
     print (lista_ordenada)
-'''
+
+def extrair_primeira_palavra(texto):
+    palavras = str(texto).split()  # Divide a string em palavras
+    if palavras:  # Verifica se há pelo menos uma palavra
+        return palavras[0]
+    else:
+        return ''
+
+# Função que mostra a tabela
+def caminho_arquivo():
+    grafico = (f'{entrada_txt.get()}.xlsx')
+    df_grafico = pd.read_excel(grafico)
+
+    df_grafico.plot(x = 'Título', y =['Preço'], kind='bar')
+
+    plt.xlabel("Título")
+    plt.ylabel("Preço")
+    plt.show()
+
+
+    # Aplicando a função à coluna desejada
+    df_grafico['Título'] = df_grafico['Título'].apply(extrair_primeira_palavra)
+
 
 #Cria uma janela
 janela = tk.Tk()
@@ -77,13 +101,13 @@ label.pack()
 #Criar uma area para inserir texto
 entrada_txt = tk.Entry(janela, width= 50)
 entrada_txt.pack()
-captura_usuario = entrada_txt.get()
-
-#Função para armazenar a entrada
-
 
 #Button: Botão:
-botao = tk.Button(janela, text ="executar", command= entrar_navegador)
+botao = tk.Button(janela, text ="Pesquisa", command= entrar_navegador)
+botao.pack()
+
+#Button: Botão:
+botao = tk.Button(janela, text ="Gráfico", command= caminho_arquivo)
 botao.pack()
 
 
