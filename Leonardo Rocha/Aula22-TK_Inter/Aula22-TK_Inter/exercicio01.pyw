@@ -51,7 +51,7 @@ def entrar_navegador():
             lista_produtos.append([h_ref['title'], "{:2f}".format(preco), h_ref['href'], preco])
 
         try:
-            btn_seguinte = navegador.find_element(By.XPATH, value= "//a@title=Seguinte']")
+            btn_seguinte = navegador.find_element(By.XPATH, value="//a[@title='Seguinte']") 
             navegador.execute_script("arguments[0].click();", btn_seguinte)
             sleep(5)
 
